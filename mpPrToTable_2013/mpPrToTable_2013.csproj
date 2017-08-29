@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{387E60A5-41E3-43CC-82C2-E55C2B08E856}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>mpPrToTable</RootNamespace>
+    <AssemblyName>mpPrToTable_2013</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\..\ModPlus_builded\Functions\mpPrToTable\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;ac2013</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="accoremgd">
+      <HintPath>..\..\..\..\Acad dlls\2013\accoremgd.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="acdbmgd">
+      <HintPath>..\..\..\..\Acad dlls\2013\acdbmgd.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="acmgd">
+      <HintPath>..\..\..\..\Acad dlls\2013\acmgd.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="MahApps.Metro">
+      <HintPath>..\..\..\..\ModPlus_builded\MahApps.Metro.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Interactivity">
+      <HintPath>..\..\..\..\ModPlus_builded\System.Windows.Interactivity.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\mpPrToTable_2010\FindProductsProgress.xaml.cs">
+      <Link>FindProductsProgress.xaml.cs</Link>
+      <DependentUpon>FindProductsProgress.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\mpPrToTable_2010\MpPrToTable.cs">
+      <Link>MpPrToTable.cs</Link>
+    </Compile>
+    <Compile Include="Interface.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\MpPrToTable_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\MpPrToTable_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\Base\mpBaseInt\mpBaseInt.csproj">
+      <Project>{8aa9a7de-d3a6-470f-9120-583769ebdc9d}</Project>
+      <Name>mpBaseInt</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Base\mpConcrete\mpConcrete.csproj">
+      <Project>{8ec0deac-917a-4b60-9a7c-e9e408e4d813}</Project>
+      <Name>mpConcrete</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Base\mpMaterial\mpMaterial.csproj">
+      <Project>{b5a0dc51-1992-4cd0-b582-aa9b8d15faf6}</Project>
+      <Name>mpMaterial</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Base\mpMetall\mpMetall.csproj">
+      <Project>{1cb57bb1-7acb-4d69-98a6-0167daab8e0e}</Project>
+      <Name>mpMetall</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Base\mpOther\mpOther.csproj">
+      <Project>{113093ae-5aeb-4810-95a3-2e82d03b5b6a}</Project>
+      <Name>mpOther</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Base\mpProductInt\mpProductInt.csproj">
+      <Project>{646840d7-1c2d-4d2a-8a76-a47cf2dead2b}</Project>
+      <Name>mpProductInt</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Base\mpWood\mpWood.csproj">
+      <Project>{cfe2ee6b-35c4-41ad-ac28-206ff8078e3a}</Project>
+      <Name>mpWood</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\AutoCAD Modules\ModPlus_2013\ModPlus_2013.csproj">
+      <Project>{a8a9303a-30c7-47dc-93c2-b9229122b4e3}</Project>
+      <Name>ModPlus_2013</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\mpExWin\mpMsg.csproj">
+      <Project>{cb3b96a0-57c2-44c5-af59-5cec27da599e}</Project>
+      <Name>mpMsg</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\mpPInterface\mpPInterface.csproj">
+      <Project>{769afe8c-728a-49df-acde-325a961b809f}</Project>
+      <Name>mpPInterface</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\mpSettings\mpSettings.csproj">
+      <Project>{04f6a42c-3492-4430-a0f1-5ddfcea0fddd}</Project>
+      <Name>mpSettings</Name>
+      <Private>False</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="..\mpPrToTable_2010\FindProductsProgress.xaml">
+      <Link>FindProductsProgress.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
