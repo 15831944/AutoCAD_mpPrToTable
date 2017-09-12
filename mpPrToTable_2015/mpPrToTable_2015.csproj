@@ -17,7 +17,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\..\..\ModPlus_builded\Functions\mpPrToTable\</OutputPath>
+    <OutputPath>..\..\..\..\..\..\..\ModPlus\Functions\mpPrToTable\</OutputPath>
     <DefineConstants>TRACE;DEBUG;ac2013</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -26,27 +26,63 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
+    <OutputPath>..\..\..\..\..\..\..\ModPlus\Functions\mpPrToTable\</OutputPath>
+    <DefineConstants>TRACE;ac2013</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="accoremgd">
-      <HintPath>..\..\..\..\Acad dlls\2015\accoremgd.dll</HintPath>
+      <HintPath>..\..\..\..\_Acad dlls\2015\accoremgd.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="acdbmgd">
-      <HintPath>..\..\..\..\Acad dlls\2015\acdbmgd.dll</HintPath>
+      <HintPath>..\..\..\..\_Acad dlls\2015\acdbmgd.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="acmgd">
-      <HintPath>..\..\..\..\Acad dlls\2015\acmgd.dll</HintPath>
+      <HintPath>..\..\..\..\_Acad dlls\2015\acmgd.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="MahApps.Metro">
-      <HintPath>..\..\..\..\ModPlus_builded\MahApps.Metro.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\ModPlus\Extensions\MahApps.Metro.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="ModPlusAPI">
+      <HintPath>..\..\..\..\..\..\..\ModPlus\Extensions\ModPlusAPI.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="ModPlus_2015">
+      <HintPath>..\..\..\..\..\..\..\ModPlus\Extensions\ModPlus_2015.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="mpBaseInt">
+      <HintPath>..\..\..\..\..\..\..\ModPlus\Data\mpBaseInt.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="mpConcrete">
+      <HintPath>..\..\..\..\..\..\..\ModPlus\Data\mpConcrete.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="mpMaterial">
+      <HintPath>..\..\..\..\..\..\..\ModPlus\Data\mpMaterial.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="mpMetall">
+      <HintPath>..\..\..\..\..\..\..\ModPlus\Data\mpMetall.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="mpOther">
+      <HintPath>..\..\..\..\..\..\..\ModPlus\Data\mpOther.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="mpProductInt">
+      <HintPath>..\..\..\..\..\..\..\ModPlus\Data\mpProductInt.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="mpWood">
+      <HintPath>..\..\..\..\..\..\..\ModPlus\Data\mpWood.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="PresentationCore" />
@@ -54,15 +90,8 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
-    <Reference Include="System.Windows.Interactivity">
-      <HintPath>..\..\..\..\ModPlus_builded\System.Windows.Interactivity.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="WindowsBase" />
   </ItemGroup>
@@ -76,80 +105,6 @@
     </Compile>
     <Compile Include="Interface.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\MpPrToTable_16x16.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\MpPrToTable_32x32.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\..\Base\mpBaseInt\mpBaseInt.csproj">
-      <Project>{8aa9a7de-d3a6-470f-9120-583769ebdc9d}</Project>
-      <Name>mpBaseInt</Name>
-      <Private>False</Private>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\..\Base\mpConcrete\mpConcrete.csproj">
-      <Project>{8ec0deac-917a-4b60-9a7c-e9e408e4d813}</Project>
-      <Name>mpConcrete</Name>
-      <Private>False</Private>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\..\Base\mpMaterial\mpMaterial.csproj">
-      <Project>{b5a0dc51-1992-4cd0-b582-aa9b8d15faf6}</Project>
-      <Name>mpMaterial</Name>
-      <Private>False</Private>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\..\Base\mpMetall\mpMetall.csproj">
-      <Project>{1cb57bb1-7acb-4d69-98a6-0167daab8e0e}</Project>
-      <Name>mpMetall</Name>
-      <Private>False</Private>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\..\Base\mpOther\mpOther.csproj">
-      <Project>{113093ae-5aeb-4810-95a3-2e82d03b5b6a}</Project>
-      <Name>mpOther</Name>
-      <Private>False</Private>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\..\Base\mpProductInt\mpProductInt.csproj">
-      <Project>{646840d7-1c2d-4d2a-8a76-a47cf2dead2b}</Project>
-      <Name>mpProductInt</Name>
-      <Private>False</Private>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\..\Base\mpWood\mpWood.csproj">
-      <Project>{cfe2ee6b-35c4-41ad-ac28-206ff8078e3a}</Project>
-      <Name>mpWood</Name>
-      <Private>False</Private>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\..\AutoCAD Modules\ModPlus_2015\ModPlus_2015.csproj">
-      <Project>{fa70d61d-f8bc-433f-9aae-7d5f2570cdaf}</Project>
-      <Name>ModPlus_2015</Name>
-      <Private>False</Private>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\..\mpExWin\mpMsg.csproj">
-      <Project>{cb3b96a0-57c2-44c5-af59-5cec27da599e}</Project>
-      <Name>mpMsg</Name>
-      <Private>False</Private>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\..\mpPInterface\mpPInterface.csproj">
-      <Project>{769afe8c-728a-49df-acde-325a961b809f}</Project>
-      <Name>mpPInterface</Name>
-      <Private>False</Private>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\..\mpSettings\mpSettings.csproj">
-      <Project>{04f6a42c-3492-4430-a0f1-5ddfcea0fddd}</Project>
-      <Name>mpSettings</Name>
-      <Private>False</Private>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Page Include="..\mpPrToTable_2010\FindProductsProgress.xaml">
@@ -157,6 +112,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="..\mpPrToTable_2010\Resources\MpPrToTable_16x16.png">
+      <Link>Resources\MpPrToTable_16x16.png</Link>
+    </Resource>
+    <Resource Include="..\mpPrToTable_2010\Resources\MpPrToTable_32x32.png">
+      <Link>Resources\MpPrToTable_32x32.png</Link>
+    </Resource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
