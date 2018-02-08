@@ -21,6 +21,7 @@
                 <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/BaseLight.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/ModPlusAPI;component/Windows/WinResources/Styles.xaml"></ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
+            <XmlDataProvider x:Key="Lang" Source="E:/ModPlus/Languages/en-US.xml" XPath="ModPlus/mpPrToTable"/>
         </ResourceDictionary>
     </Window.Resources>
     <Grid Margin="5">
@@ -30,7 +31,7 @@
             <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
         <TextBlock Grid.Row="0" Margin="2" HorizontalAlignment="Center" VerticalAlignment="Top"
-                   FontSize="18" Name="TbHeader" Text="Поиск изделий"></TextBlock>
+                   FontSize="18" Name="TbHeader" Text="{Binding Source={StaticResource Lang}, XPath=h9}"></TextBlock>
         <TextBlock Name="ProgressText" Grid.Row="1" Margin="2" Text="100" FontSize="24"
                  VerticalAlignment="Center" HorizontalAlignment="Center"/>
         <controls:MetroProgressBar Name="ProgressBar" Grid.Row="2" Height="20" Margin="2"  Width="250" Foreground="{StaticResource AccentColorBrush}"/>

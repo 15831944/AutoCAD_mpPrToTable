@@ -111,8 +111,7 @@ namespace mpPrToTable
                             ProgressText.Text = i + "/" + _objectIds.Length;
                         }, null);
 
-                        var mpProductToSave = XDataHelpersForProducts.NewFromEntity(entity) as MpProductToSave;
-                        if (mpProductToSave != null)
+                        if (XDataHelpersForProducts.NewFromEntity(entity) is MpProductToSave mpProductToSave)
                         {
                             var productFromSaved = MpProduct.GetProductFromSaved(mpProductToSave);
                             if (productFromSaved != null)
