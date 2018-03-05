@@ -1,25 +1,19 @@
-﻿<controls:MetroWindow x:Class="mpPrToTable.FindProductsProgress"
+﻿<mpc:BaseMetroWindow x:Class="mpPrToTable.FindProductsProgress"
                       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
                       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
                       xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
-                      ShowTitleBar="False" ResizeMode="NoResize"
-                      ShowMaxRestoreButton="False" ShowMinButton="False"
+                      xmlns:mpc="clr-namespace:ModPlusAPI.Windows.Mpc;assembly=ModPlusAPI"
+                      TitlebarHeight="0" ResizeMode="NoResize"
                       ShowCloseButton="False"
-                      mc:Ignorable="d" WindowStartupLocation="CenterScreen" SizeToContent="WidthAndHeight"
+                      mc:Ignorable="d" SizeToContent="WidthAndHeight"
                       WindowState="Normal" WindowStyle="None"
                       Topmost="True" ShowInTaskbar="False" ShowActivated="True">
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Colors.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.AnimatedSingleRowTabControl.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/Blue.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/BaseLight.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/ModPlusAPI;component/Windows/WinResources/Styles.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="pack://application:,,,/ModPlusAPI;component/Windows/WinResources/Styles.xaml"/>
             </ResourceDictionary.MergedDictionaries>
             <XmlDataProvider x:Key="Lang" Source="E:/ModPlus/Languages/en-US.xml" XPath="ModPlus/mpPrToTable"/>
         </ResourceDictionary>
@@ -36,5 +30,7 @@
                  VerticalAlignment="Center" HorizontalAlignment="Center"/>
         <controls:MetroProgressBar Name="ProgressBar" Grid.Row="2" Height="20" Margin="2"  Width="250" Foreground="{StaticResource AccentColorBrush}"/>
     </Grid>
-</controls:MetroWindow>
+</mpc:BaseMetroWindow>
+
+
 

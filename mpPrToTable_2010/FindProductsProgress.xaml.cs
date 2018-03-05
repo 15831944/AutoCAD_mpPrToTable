@@ -12,7 +12,6 @@ using Autodesk.AutoCAD.DatabaseServices;
 using mpProductInt;
 using ModPlus;
 using ModPlusAPI.Windows;
-using ModPlusAPI.Windows.Helpers;
 
 namespace mpPrToTable
 {public partial class FindProductsProgress
@@ -28,7 +27,6 @@ namespace mpPrToTable
         public FindProductsProgress(ObjectId[] objectIds, Transaction tr)
         {
             InitializeComponent();
-            this.OnWindowStartUp();
             _objectIds = objectIds;
             _tr = tr;
             ProgressBar.Minimum = 0;
