@@ -3,12 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27004.2002
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mpPrToTable_2010", "mpPrToTable_2010\mpPrToTable_2010.csproj", "{69F6D094-6D39-4644-B3CA-5267AADEE11B}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mpPrToTable_2011", "mpPrToTable_2011\mpPrToTable_2011.csproj", "{3F8B0F02-C164-4033-B10B-551D1C211CE6}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mpPrToTable_2012", "mpPrToTable_2012\mpPrToTable_2012.csproj", "{D8B7B87F-E40E-4607-921B-4DE26ABD2C6F}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mpPrToTable_2013", "mpPrToTable_2013\mpPrToTable_2013.csproj", "{387E60A5-41E3-43CC-82C2-E55C2B08E856}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mpPrToTable_2014", "mpPrToTable_2014\mpPrToTable_2014.csproj", "{AC3C9F1C-4454-4017-9F72-51CA2CDC3A23}"
@@ -29,18 +23,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{69F6D094-6D39-4644-B3CA-5267AADEE11B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{69F6D094-6D39-4644-B3CA-5267AADEE11B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{69F6D094-6D39-4644-B3CA-5267AADEE11B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{69F6D094-6D39-4644-B3CA-5267AADEE11B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3F8B0F02-C164-4033-B10B-551D1C211CE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3F8B0F02-C164-4033-B10B-551D1C211CE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3F8B0F02-C164-4033-B10B-551D1C211CE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3F8B0F02-C164-4033-B10B-551D1C211CE6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D8B7B87F-E40E-4607-921B-4DE26ABD2C6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D8B7B87F-E40E-4607-921B-4DE26ABD2C6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D8B7B87F-E40E-4607-921B-4DE26ABD2C6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D8B7B87F-E40E-4607-921B-4DE26ABD2C6F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{387E60A5-41E3-43CC-82C2-E55C2B08E856}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{387E60A5-41E3-43CC-82C2-E55C2B08E856}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{387E60A5-41E3-43CC-82C2-E55C2B08E856}.Release|Any CPU.ActiveCfg = Release|Any CPU

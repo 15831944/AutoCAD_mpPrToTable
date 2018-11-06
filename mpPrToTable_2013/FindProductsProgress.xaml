@@ -1,0 +1,38 @@
+﻿<mps:ModPlusWindow x:Class="mpPrToTable.FindProductsProgress"
+                      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+                      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+                      xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
+                      xmlns:mps="https://modplus.org/winfx/xaml/controls"
+                      ShowTitleBar="False" ResizeMode="NoResize"
+                      ShowCloseButton="False"
+                      mc:Ignorable="d" SizeToContent="WidthAndHeight"
+                      Topmost="True" ShowInTaskbar="False" ShowActivated="True">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/ModPlusStyle;component/Styles/Controls.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            <XmlDataProvider x:Key="Lang" Source="E:/ModPlus/Languages/en-US.xml" XPath="ModPlus/mpPrToTable" IsAsynchronous="False"/>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" Margin="{DynamicResource ModPlusDefaultMargin}"
+                   HorizontalAlignment="Center" 
+                   FontSize="18" Name="TbHeader"
+                   Text="{Binding Source={StaticResource Lang}, XPath=h9}"></TextBlock>
+        <TextBlock Name="ProgressText" Grid.Row="1" Text="100" FontSize="24"
+                   Margin="{DynamicResource ModPlusDefaultMargin}"
+                   HorizontalAlignment="Center"/>
+        <ProgressBar Name="ProgressBar" Grid.Row="2" Width="350"/>
+    </Grid>
+</mps:ModPlusWindow>
+
+
+
