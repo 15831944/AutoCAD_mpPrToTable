@@ -1,16 +1,17 @@
-﻿using AcApp = Autodesk.AutoCAD.ApplicationServices.Core.Application;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
-using Autodesk.AutoCAD.DatabaseServices;
-using mpProductInt;
-using ModPlus;
-using ModPlusAPI.Windows;
+﻿namespace mpPrToTable
+{
+    using AcApp = Autodesk.AutoCAD.ApplicationServices.Core.Application;
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Threading;
+    using System.Threading.Tasks;
+    using Autodesk.AutoCAD.DatabaseServices;
+    using mpProductInt;
+    using ModPlus;
+    using ModPlusAPI.Windows;
 
-namespace mpPrToTable
-{public partial class FindProductsProgress
+    public partial class FindProductsProgress
     {
         //private delegate void UpdateProgressBarDelegate(DependencyProperty dp, object value);
         //private delegate void UpdateProgressTextDelegate(DependencyProperty dp, object value);

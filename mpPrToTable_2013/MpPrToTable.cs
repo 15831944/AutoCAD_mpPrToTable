@@ -16,6 +16,8 @@ using Visibility = System.Windows.Visibility;
 
 namespace mpPrToTable
 {
+    using Autodesk.AutoCAD.ApplicationServices;
+
     public class MpPrToTable : IExtensionApplication
     {
         private const string LangItem = "mpPrToTable";
@@ -26,12 +28,71 @@ namespace mpPrToTable
         public void Initialize()
         {
             // Добавляем контекстное меню
-            ObjectContextMenu.Attach();
+            AcApp.DocumentManager.DocumentCreated += Documents_DocumentCreated;
+            AcApp.DocumentManager.DocumentActivated += Documents_DocumentActivated;
+
+            foreach (Document document in AcApp.DocumentManager)
+            {
+                document.ImpliedSelectionChanged += Document_ImpliedSelectionChanged;
+            }
         }
 
         public void Terminate()
         {
 
+        }
+
+        private static void Documents_DocumentActivated(object sender, DocumentCollectionEventArgs e)
+        {
+            if (e.Document != null)
+            {
+                e.Document.ImpliedSelectionChanged -= Document_ImpliedSelectionChanged;
+                e.Document.ImpliedSelectionChanged += Document_ImpliedSelectionChanged;
+            }
+        }
+
+        private static void Documents_DocumentCreated(object sender, DocumentCollectionEventArgs e)
+        {
+            if (e.Document != null)
+            {
+                e.Document.ImpliedSelectionChanged -= Document_ImpliedSelectionChanged;
+                e.Document.ImpliedSelectionChanged += Document_ImpliedSelectionChanged;
+            }
+        }
+
+        private static void Document_ImpliedSelectionChanged(object sender, EventArgs e)
+        {
+            PromptSelectionResult psr = AcApp.DocumentManager.MdiActiveDocument.Editor.SelectImplied();
+            bool detach = true;
+            if (psr.Value != null)
+            {
+                using (AcApp.DocumentManager.MdiActiveDocument.LockDocument())
+                {
+                    using (OpenCloseTransaction tr = new OpenCloseTransaction())
+                    {
+                        foreach (SelectedObject selectedObject in psr.Value)
+                        {
+                            if (selectedObject.ObjectId == ObjectId.Null)
+                                continue;
+                            var obj = tr.GetObject(selectedObject.ObjectId, OpenMode.ForRead);
+                            if (obj is Entity entity)
+                            {
+                                var xData = entity.GetXDataForApplication("ModPlusProduct");
+                                if (xData != null)
+                                {
+                                    detach = false;
+                                    break;
+                                }
+                            }
+                        }
+
+                        tr.Commit();
+                    }
+                }
+            }
+            if (detach)
+                ObjectContextMenu.Detach();
+            else ObjectContextMenu.Attach();
         }
 
         [CommandMethod("ModPlus", "mpPrToTable", CommandFlags.UsePickSet)]
@@ -280,12 +341,9 @@ namespace mpPrToTable
                 var miEnt = new MenuItem(Language.GetItem(LangItem, "h8"));
                 miEnt.Click += SendCommand;
                 MpPrToTableCme.MenuItems.Add(miEnt);
-                //ADD the popup item
-                MpPrToTableCme.Popup += contextMenu_Popup;
-
-                var rxcEnt = RXObject.GetClass(typeof(Entity));
-                Autodesk.AutoCAD.ApplicationServices.Application.AddObjectContextMenuExtension(rxcEnt, MpPrToTableCme);
             }
+            var rxcEnt = RXObject.GetClass(typeof(Entity));
+            Application.AddObjectContextMenuExtension(rxcEnt, MpPrToTableCme);
         }
 
         private static void SendCommand(object sender, EventArgs e)
@@ -298,47 +356,7 @@ namespace mpPrToTable
             if (MpPrToTableCme != null)
             {
                 var rxcEnt = RXObject.GetClass(typeof(Entity));
-                Autodesk.AutoCAD.ApplicationServices.Application.RemoveObjectContextMenuExtension(rxcEnt, MpPrToTableCme);
-            }
-        }
-        // Обработка выпадающего меню
-        static void contextMenu_Popup(object sender, EventArgs e)
-        {
-            try
-            {
-                if (sender is ContextMenuExtension contextMenu)
-                {
-                    var doc = AcApp.DocumentManager.MdiActiveDocument;
-                    var ed = doc.Editor;
-                    // This is the "Root context menu" item
-                    var rootItem = contextMenu.MenuItems[0];
-                    var acSsPrompt = ed.SelectImplied();
-                    var mVisible = true;
-
-                    if (acSsPrompt.Status == PromptStatus.OK)
-                    {
-                        var set = acSsPrompt.Value;
-                        var ids = set.GetObjectIds();
-                        // проходим по всем выбранным блокам и если хоть один не мой - отключаем меню
-                        foreach (var objectId in ids)
-                        {
-                            using (var tr = doc.TransactionManager.StartTransaction())
-                            {
-                                var entity = tr.GetObject(objectId, OpenMode.ForRead) as Entity;
-                                if (!(XDataHelpersForProducts.NewFromEntity(entity) is MpProductToSave mpProductToSave))
-                                {
-                                    mVisible = false;
-                                    break;
-                                }
-                            }
-                        }
-                    }
-                    rootItem.Visible = mVisible;
-                }
-            }
-            catch
-            {
-                // ignored
+                Application.RemoveObjectContextMenuExtension(rxcEnt, MpPrToTableCme);
             }
         }
     }
