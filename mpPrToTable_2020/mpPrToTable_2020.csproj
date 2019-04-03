@@ -4,42 +4,45 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E849DD54-7BE3-4CAF-802F-3B8641D85A3F}</ProjectGuid>
+    <ProjectGuid>{34116C40-094E-4920-AB2B-0F8F187F49FC}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>mpPrToTable</RootNamespace>
-    <AssemblyName>mpPrToTable_2019</AssemblyName>
+    <AssemblyName>mpPrToTable_2020</AssemblyName>
     <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;A2019</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;A2020</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x64</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE;A2019</DefineConstants>
+    <DefineConstants>TRACE;A2020</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x64</PlatformTarget>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="accoremgd">
-      <HintPath>C:\_Acad dlls\2019\accoremgd.dll</HintPath>
+      <HintPath>C:\_Acad dlls\2020\accoremgd.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="acdbmgd">
-      <HintPath>C:\_Acad dlls\2019\acdbmgd.dll</HintPath>
+      <HintPath>C:\_Acad dlls\2020\acdbmgd.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="acmgd">
-      <HintPath>C:\_Acad dlls\2019\acmgd.dll</HintPath>
+      <HintPath>C:\_Acad dlls\2020\acmgd.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="ModPlusAPI">
@@ -50,35 +53,52 @@
       <HintPath>..\..\..\..\..\..\..\ModPlus\Extensions\ModPlusStyle.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="ModPlus_2019">
-      <HintPath>..\..\..\..\..\..\..\ModPlus\Extensions\ModPlus_2019.dll</HintPath>
+    <Reference Include="ModPlus_2020">
+      <HintPath>..\..\..\..\..\..\..\ModPlus\Extensions\ModPlus_2020.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="mpBaseInt">
+      <HintPath>..\..\..\..\..\..\..\ModPlus\Data\mpBaseInt.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="mpConcrete">
+      <HintPath>..\..\..\..\..\..\..\ModPlus\Data\mpConcrete.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="mpMaterial">
+      <HintPath>..\..\..\..\..\..\..\ModPlus\Data\mpMaterial.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="mpMetall">
+      <HintPath>..\..\..\..\..\..\..\ModPlus\Data\mpMetall.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="mpOther">
+      <HintPath>..\..\..\..\..\..\..\ModPlus\Data\mpOther.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="mpProductInt">
       <HintPath>..\..\..\..\..\..\..\ModPlus\Data\mpProductInt.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="mpWood">
+      <HintPath>..\..\..\..\..\..\..\ModPlus\Data\mpWood.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
+    <Reference Include="System.Core" />
     <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
     <Reference Include="WindowsBase" />
-    <!--
-    
-    <Reference Include="System.Core"/>
-    <Reference Include="System.Xml.Linq"/>
-    <Reference Include="System.Data.DataSetExtensions"/>
-    
-    
-    <Reference Include="Microsoft.CSharp"/>
-    
-    <Reference Include="System.Data"/>
-    
-    <Reference Include="System.Net.Http"/>
-    
-    <Reference Include="System.Xml"/>
-	-->
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Compile Include="..\mpPrToTable_2013\FindProductsProgress.xaml.cs">
       <Link>FindProductsProgress.xaml.cs</Link>
@@ -95,25 +115,31 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="..\mpprtotable_2013\resources\mpPrToTable_16x16.png">
+      <Link>Resources\mpPrToTable_16x16.png</Link>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="..\mpprtotable_2013\resources\mpPrToTable_16x16_dark.png">
+      <Link>Resources\mpPrToTable_16x16_dark.png</Link>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="..\mpprtotable_2013\resources\mpPrToTable_32x32.png">
+      <Link>Resources\mpPrToTable_32x32.png</Link>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="..\mpprtotable_2013\resources\mpPrToTable_32x32_dark.png">
+      <Link>Resources\mpPrToTable_32x32_dark.png</Link>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
     <Page Include="..\mpPrToTable_2013\FindProductsProgress.xaml">
       <Link>FindProductsProgress.xaml</Link>
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="..\mpPrToTable_2013\Resources\mpPrToTable_16x16.png">
-      <Link>Resources\mpPrToTable_16x16.png</Link>
-    </Resource>
-    <Resource Include="..\mpPrToTable_2013\Resources\mpPrToTable_16x16_dark.png">
-      <Link>Resources\mpPrToTable_16x16_dark.png</Link>
-    </Resource>
-    <Resource Include="..\mpPrToTable_2013\Resources\mpPrToTable_32x32.png">
-      <Link>Resources\mpPrToTable_32x32.png</Link>
-    </Resource>
-    <Resource Include="..\mpPrToTable_2013\Resources\mpPrToTable_32x32_dark.png">
-      <Link>Resources\mpPrToTable_32x32_dark.png</Link>
-    </Resource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

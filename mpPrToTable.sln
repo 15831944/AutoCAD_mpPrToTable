@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27004.2002
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28729.10
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mpPrToTable_2013", "mpPrToTable_2013\mpPrToTable_2013.csproj", "{387E60A5-41E3-43CC-82C2-E55C2B08E856}"
 EndProject
@@ -16,6 +16,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mpPrToTable_2018", "mpPrToTable_2018\mpPrToTable_2018.csproj", "{D43936FB-66FE-4E40-85C9-7C6763350441}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mpPrToTable_2019", "mpPrToTable_2019\mpPrToTable_2019.csproj", "{E849DD54-7BE3-4CAF-802F-3B8641D85A3F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mpPrToTable_2020", "mpPrToTable_2020\mpPrToTable_2020.csproj", "{34116C40-094E-4920-AB2B-0F8F187F49FC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{E849DD54-7BE3-4CAF-802F-3B8641D85A3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E849DD54-7BE3-4CAF-802F-3B8641D85A3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E849DD54-7BE3-4CAF-802F-3B8641D85A3F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34116C40-094E-4920-AB2B-0F8F187F49FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34116C40-094E-4920-AB2B-0F8F187F49FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34116C40-094E-4920-AB2B-0F8F187F49FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34116C40-094E-4920-AB2B-0F8F187F49FC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

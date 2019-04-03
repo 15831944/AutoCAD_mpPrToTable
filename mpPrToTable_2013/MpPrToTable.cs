@@ -98,7 +98,7 @@ namespace mpPrToTable
         [CommandMethod("ModPlus", "mpPrToTable", CommandFlags.UsePickSet)]
         public void MpPrToTableFunction()
         {
-            Statistic.SendCommandStarting(new Interface());
+            Statistic.SendCommandStarting(new ModPlusConnector());
 
             try
             {

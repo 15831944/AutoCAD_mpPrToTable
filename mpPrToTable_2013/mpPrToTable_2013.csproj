@@ -17,8 +17,8 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\..\..\..\..\..\ModPlus\Functions\AutoCAD\mpPrToTable\</OutputPath>
-    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;A2013</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
@@ -26,8 +26,8 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\..\..\..\..\..\ModPlus\Functions\AutoCAD\mpPrToTable\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;A2013</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
@@ -57,32 +57,8 @@
       <HintPath>..\..\..\..\..\..\..\ModPlus\Extensions\ModPlus_2013.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="mpBaseInt">
-      <HintPath>..\..\..\..\..\..\..\ModPlus\Data\mpBaseInt.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="mpConcrete">
-      <HintPath>..\..\..\..\..\..\..\ModPlus\Data\mpConcrete.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="mpMaterial">
-      <HintPath>..\..\..\..\..\..\..\ModPlus\Data\mpMaterial.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="mpMetall">
-      <HintPath>..\..\..\..\..\..\..\ModPlus\Data\mpMetall.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="mpOther">
-      <HintPath>..\..\..\..\..\..\..\ModPlus\Data\mpOther.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="mpProductInt">
       <HintPath>..\..\..\..\..\..\..\ModPlus\Data\mpProductInt.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="mpWood">
-      <HintPath>..\..\..\..\..\..\..\ModPlus\Data\mpWood.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="PresentationCore" />
@@ -95,10 +71,9 @@
     <Compile Include="FindProductsProgress.xaml.cs">
       <DependentUpon>FindProductsProgress.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Interface.cs" />
+    <Compile Include="ModPlusConnector.cs" />
     <Compile Include="MpPrToTable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Properties\AssemblyInfoCommon.cs" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="FindProductsProgress.xaml">
@@ -113,6 +88,14 @@
     <Resource Include="Resources\mpPrToTable_32x32_dark.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>if $(ConfigurationName) == Debug (
+"$(ModPlusPostBuild)" "AutoCAD" "$(TargetPath)"
+)
+if $(ConfigurationName) == Release (
+"$(ModPlusPostBuild)" "AutoCAD" "$(TargetPath)" "s"
+)</PostBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

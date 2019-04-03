@@ -4,11 +4,27 @@ using ModPlusAPI.Interfaces;
 
 namespace mpPrToTable
 {
-    public class Interface : IModPlusFunctionInterface
+    public class ModPlusConnector : IModPlusFunctionInterface
     {
         public SupportedProduct SupportedProduct => SupportedProduct.AutoCAD;
         public string Name => "mpPrToTable";
+#if A2013
+        public string AvailProductExternalVersion => "2013";
+#elif A2014
+        public string AvailProductExternalVersion => "2014";
+#elif A2015
+        public string AvailProductExternalVersion => "2015";
+#elif A2016
         public string AvailProductExternalVersion => "2016";
+#elif A2017
+        public string AvailProductExternalVersion => "2017";
+#elif A2018
+        public string AvailProductExternalVersion => "2018";
+#elif A2019
+        public string AvailProductExternalVersion => "2019";
+#elif A2020
+        public string AvailProductExternalVersion => "2020";
+#endif
         public string FullClassName => string.Empty;
         public string AppFullClassName => string.Empty;
         public Guid AddInId => Guid.Empty;

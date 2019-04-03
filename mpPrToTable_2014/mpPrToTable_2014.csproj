@@ -17,8 +17,8 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\..\..\..\..\..\ModPlus\Functions\AutoCAD\mpPrToTable\</OutputPath>
-    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;A2014</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
@@ -26,8 +26,8 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\..\..\..\..\..\ModPlus\Functions\AutoCAD\mpPrToTable\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;A2014</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
@@ -57,41 +57,15 @@
       <HintPath>..\..\..\..\..\..\..\ModPlus\Extensions\ModPlus_2014.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="mpBaseInt">
-      <HintPath>..\..\..\..\..\..\..\ModPlus\Data\mpBaseInt.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="mpConcrete">
-      <HintPath>..\..\..\..\..\..\..\ModPlus\Data\mpConcrete.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="mpMaterial">
-      <HintPath>..\..\..\..\..\..\..\ModPlus\Data\mpMaterial.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="mpMetall">
-      <HintPath>..\..\..\..\..\..\..\ModPlus\Data\mpMetall.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="mpOther">
-      <HintPath>..\..\..\..\..\..\..\ModPlus\Data\mpOther.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="mpProductInt">
       <HintPath>..\..\..\..\..\..\..\ModPlus\Data\mpProductInt.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="mpWood">
-      <HintPath>..\..\..\..\..\..\..\ModPlus\Data\mpWood.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Drawing" />
     <Reference Include="System.Xaml" />
-    <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Xml" />
     <Reference Include="WindowsBase" />
   </ItemGroup>
@@ -100,14 +74,15 @@
       <Link>FindProductsProgress.xaml.cs</Link>
       <DependentUpon>FindProductsProgress.xaml</DependentUpon>
     </Compile>
+    <Compile Include="..\mpPrToTable_2013\ModPlusConnector.cs">
+      <Link>ModPlusConnector.cs</Link>
+    </Compile>
     <Compile Include="..\mpPrToTable_2013\MpPrToTable.cs">
       <Link>MpPrToTable.cs</Link>
     </Compile>
-    <Compile Include="..\mpPrToTable_2013\Properties\AssemblyInfoCommon.cs">
-      <Link>Properties\AssemblyInfoCommon.cs</Link>
+    <Compile Include="..\mpPrToTable_2013\Properties\AssemblyInfo.cs">
+      <Link>Properties\AssemblyInfo.cs</Link>
     </Compile>
-    <Compile Include="Interface.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="..\mpPrToTable_2013\FindProductsProgress.xaml">
@@ -131,6 +106,14 @@
     </Resource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>if $(ConfigurationName) == Debug (
+"$(ModPlusPostBuild)" "AutoCAD" "$(TargetPath)"
+)
+if $(ConfigurationName) == Release (
+"$(ModPlusPostBuild)" "AutoCAD" "$(TargetPath)" "s"
+)</PostBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
