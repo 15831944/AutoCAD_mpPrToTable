@@ -56,7 +56,7 @@
                 for (var i = 0; i < _objectIds.Length; i++)
                 {
                     // Проверяем - если это блок и он имеет атрибуты для спецификации
-                    if (MpPrToTable.HasAttributesForSpecification(_tr, _objectIds[i]))
+                    if (ProductsToTable.HasAttributesForSpecification(_tr, _objectIds[i]))
                     {
                         // post progress
                         _context.Post(
@@ -67,7 +67,7 @@
                         }, null);
 
                         var specificationItemByBlockAttributes =
-                            MpPrToTable.GetProductFromBlockByAttributes(_tr, _objectIds[i]);
+                            ProductsToTable.GetProductFromBlockByAttributes(_tr, _objectIds[i]);
                         if (specificationItemByBlockAttributes != null)
                         {
                             if (

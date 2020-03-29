@@ -6,3 +6,6 @@ Plugin collects data for the specification from the extended product data (block
 AutoCAD >= 2013
 ### Plugin card ###
 https://modplus.org/autocadplugins/mpprtotable
+### This project uses
+
+[<img align="left" src="https://raw.githubusercontent.com/ModPlus-Software/Documentation/master/Images/nuke-logo-small.png" />](https://nuke.build/)

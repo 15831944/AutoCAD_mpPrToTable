@@ -28,6 +28,8 @@ namespace mpPrToTable
         public string AvailProductExternalVersion => "2019";
 #elif A2020
         public string AvailProductExternalVersion => "2020";
+#elif A2021
+        public string AvailProductExternalVersion => "2021";
 #endif
         public string FullClassName => string.Empty;
 
